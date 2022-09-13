@@ -7,6 +7,7 @@
 roles:
   - src: https://github.com/nickhardiman/libvirt-guest
   - src: https://github.com/nickhardiman/ansible-target
+  - name: geerlingguy.gitlab
 collections:
   - name: ansible.posix
   - name: community.general

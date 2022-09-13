@@ -1,8 +1,14 @@
 ---
 
 # virt-install
-# variables to override are listed here. 
+# Variables to override are listed here. 
 #   https://github.com/nickhardiman/libvirt-guest/blob/main/defaults/main.yml
+# No gitlab packages for RHEL 9.
+# Gitlab packages for RHEL 8 are here.
+#   https://packages.gitlab.com/app/gitlab/gitlab-ce/search?q=gitlab-ce&filter=all&dist=el%2F8
+install_iso: /var/lib/libvirt/images/rhel-8.6-x86_64-dvd.iso
+os_variant: rhel8.5
+
 
 # compute 
 # size in MiB

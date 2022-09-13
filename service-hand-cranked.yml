@@ -1,0 +1,45 @@
+# incomplete
+# gitlab?
+# https://about.gitlab.com/install/#centos-7
+# plain old git?
+# https://hardiman.consulting/ansible/2.11/git-set-up/git-repo-shared.html
+
+- name: build the SCM
+  hosts: git1.lab.example.com
+  become: yes
+  gather_facts: yes
+  #gather_facts: no
+  vars:
+    gitlab_external_url: "https://git1.lab.example.com/"
+  roles:
+    - role: geerlingguy.gitlab
+
+  tasks: 
+
+# packages for git
+  - name: install packages
+    ansible.builtin.dnf:
+      name: 
+        - git
+      state: latest
+    register: r_dnf_git
+
+# packages for gitlab
+# https://about.gitlab.com/install/#centos-7
+  - name: install packages
+    ansible.builtin.dnf:
+      name: 
+        - curl
+        - python3-policycoreutils
+        - openssh-server
+        - perl
+        - postfix
+      state: latest
+    register: r_dnf_gitlab
+
+  - name: start the mail server
+    ansible.builtin.systemd:
+      name: postfix.service
+      state: started
+      enabled: yes
+

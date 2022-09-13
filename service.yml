@@ -5,14 +5,10 @@
 - name: build the SCM
   hosts: git1.lab.example.com
   become: yes
-  gather_facts: no
-  tasks: 
-
-# packages
-  - name: install git
-    ansible.builtin.dnf:
-      name: git
-      state: latest
-    register: r_dnf
-
+  gather_facts: yes
+  #gather_facts: no
+  vars:
+    gitlab_external_url: "https://git1.lab.example.com/"
+  roles:
+    - role: geerlingguy.gitlab
 

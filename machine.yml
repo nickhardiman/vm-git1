@@ -13,4 +13,5 @@
   - name: Wait for new server to be ready
     ansible.builtin.wait_for_connection:
       timeout: 30
+    become: no
 
