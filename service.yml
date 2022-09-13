@@ -1,0 +1,18 @@
+# incomplete
+# gitlab?
+# https://hardiman.consulting/ansible/2.11/git-set-up/git-repo-shared.html
+
+- name: build the SCM
+  hosts: git1.lab.example.com
+  become: yes
+  gather_facts: no
+  tasks: 
+
+# packages
+  - name: install git
+    ansible.builtin.dnf:
+      name: git
+      state: latest
+    register: r_dnf
+
+

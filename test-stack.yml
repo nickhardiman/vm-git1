@@ -1,0 +1,16 @@
+- name: test stack
+  hosts: control1.lab.example.com
+  gather_facts: no
+  tasks:
+
+  - name: check with ping
+    ping:
+
+  - name: check the API
+    uri:
+      url: https://control1.lab.example.com/api/v2/
+      validate_certs: no
+    delegate_to: localhost
+
+
+

@@ -1,0 +1,16 @@
+---
+- name: build new machine
+  hosts: scm
+  become: yes
+  gather_facts: no
+  serial: 1
+  roles: 
+  - role: libvirt-guest
+    delegate_to: localhost
+    connection: local
+
+  tasks:
+  - name: Wait for new server to be ready
+    ansible.builtin.wait_for_connection:
+      timeout: 30
+

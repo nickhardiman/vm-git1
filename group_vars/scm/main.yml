@@ -1,0 +1,38 @@
+---
+
+# virt-install
+# variables to override are listed here. 
+#   https://github.com/nickhardiman/libvirt-guest/blob/main/defaults/main.yml
+
+# compute 
+# size in MiB
+#ram: 4096
+
+# storage
+# partitions
+# 1 for /boot/efi                600M
+# 2 for /boot                    1024M
+# 3 LVM Physical Volume          28G * 1024 = 28672M
+# LVM logical volume for /root   13G * 1024 = 13312M
+# LVM logical volume for /var    75G * 1024 = 76800M
+# LVM volume for swap: 256M
+
+# network
+# MAC addresses are listed here.
+#   https://hardiman.consulting/rhel/9/set-up/host1-libvirt-network.html
+nics:
+- 
+  name: enp1s0
+  mac: "52:54:00:00:00:13"
+  net: public0
+
+# OS
+host: git1
+RPMs: 
+- git
+
+# kickstart
+
+# accounts
+
+
