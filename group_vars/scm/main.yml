@@ -34,8 +34,11 @@ nics:
 
 # OS
 host: git1
+fqdn: "{{ host }}.lab.example.com"
 RPMs: 
 - git
+server_cn: "{{ fqdn }}"
+
 
 # kickstart
 

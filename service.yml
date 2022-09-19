@@ -2,13 +2,20 @@
 # gitlab?
 # https://hardiman.consulting/ansible/2.11/git-set-up/git-repo-shared.html
 
+
+- name: create a server certificate
+  ansible.builtin.import_playbook: cert-server.yml
+
 - name: build the SCM
   hosts: git1.lab.example.com
   become: yes
   gather_facts: yes
   #gather_facts: no
   vars:
-    gitlab_external_url: "https://git1.lab.example.com/"
+    gitlab_domain: git1.lab.example.com
+    gitlab_ssl_certificate: "/etc/pki/tls/certs/{{ gitlab_domain }}.pem"
+    gitlab_ssl_certificate_key: "/etc/pki/tls/private/{{ gitlab_domain }}.key"
+    gitlab_create_self_signed_cert: no
   roles:
     - role: geerlingguy.gitlab
 
