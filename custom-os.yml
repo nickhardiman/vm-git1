@@ -63,3 +63,6 @@
 # checks
 
 
+- name: create a server certificate
+  ansible.builtin.import_playbook: cert-server.yml
+

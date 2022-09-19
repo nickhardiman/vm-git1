@@ -3,9 +3,6 @@
 # accounts
 user_ansible_password: Password;1
 # server certificate
-host: git1
-fqdn: "{{ host }}.lab.example.com"
-server_cn: "{{ fqdn }}"
 server_dir: /root/ca
 server_secret_passphrase: redhat
 ca_secret_passphrase: redhat

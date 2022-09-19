@@ -1,10 +1,7 @@
-# incomplete
 # gitlab?
+# or keep it real simple with
 # https://hardiman.consulting/ansible/2.11/git-set-up/git-repo-shared.html
 
-
-- name: create a server certificate
-  ansible.builtin.import_playbook: cert-server.yml
 
 - name: build the SCM
   hosts: git1.lab.example.com
